@@ -4,60 +4,12 @@
   "startedAt": "2026-11-22",
   "currentLevel": 1,
   "levelTitle": "Hello, World",
-  "xp": 176,
-  "tasksCompletedThisLevel": 2,
+  "xp": 0,
+  "tasksCompletedThisLevel": 0,
   "quizPassedThisLevel": false,
   "bossDefeated": [],
   "activeTask": null,
-  "weakAreas": [
-    "code quality: let where const fits, and a name that misdescribes the value",
-    "communication: no tradeoff in Notes"
-  ],
+  "weakAreas": [],
   "strengths": [],
-  "history": [
-    {
-      "date": "2026-11-21",
-      "type": "task",
-      "level": 1,
-      "id": "tasks/level-01/task-01-parking-fee",
-      "focus": "variables (let and const)",
-      "score": 88,
-      "passed": true,
-      "dimensions": {
-        "correctness": 40,
-        "codeQuality": 20,
-        "typescript": 15,
-        "edgeCases": 8,
-        "communication": 5
-      },
-      "flagged": [
-        "code quality: branching on a formatted string",
-        "communication: no real tradeoff in Notes"
-      ],
-      "cleared": [],
-      "notes": "All 14 tests green, clean types, good constant naming and reuse of isOverCap; decided No-charge by comparing a formatted string, and Notes lacked a genuine tradeoff."
-    },
-    {
-      "date": "2026-11-22",
-      "type": "task",
-      "level": 1,
-      "id": "tasks/level-01/task-02-reading-progress",
-      "focus": "primitive types",
-      "score": 88,
-      "passed": true,
-      "dimensions": {
-        "correctness": 40,
-        "codeQuality": 21,
-        "typescript": 15,
-        "edgeCases": 8,
-        "communication": 4
-      },
-      "flagged": [
-        "code quality: let where const fits, and a name that misdescribes the value",
-        "communication: no tradeoff and no NaN explanation in Notes"
-      ],
-      "cleared": [],
-      "notes": "All 26 tests green and a clean type check, tidy guard clauses and good reuse of isFinished and percentRead; used let for a value that never changes, and Notes again had no tradeoff and described parsePageCount inaccurately."
-    }
-  ]
+  "history": []
 }
