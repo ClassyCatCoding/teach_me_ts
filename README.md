@@ -57,4 +57,16 @@ Progress is tracked in the same `progress/progress.json` either way, so you can 
 npm test          # run the tests for your tasks
 npm run check     # type-check everything
 npm run test:watch  # tests re-run as you save
+npm run dashboard   # open the progress dashboard in your browser
 ```
+
+## The dashboard
+
+`npm run dashboard` opens a read-only page for looking back at your work. It never changes anything; the mentor loop above is still how you make progress.
+
+- **Overview** — level, XP, what is left before the boss, weak areas.
+- **Trends** — scores over time, each grading dimension, and what keeps getting flagged.
+- **History** — every graded event and the training journal.
+- **Task review** — open any task to see its grade, the mentor's saved feedback (`FEEDBACK.md`), your code beside the reference (`REFERENCE.md`), the brief, your notes, and the tests.
+
+It reads `progress/` and `tasks/` directly and refreshes when the mentor updates them. The code lives in `dashboard/` and is kept out of `npm test` and `npm run check`, so it cannot affect a grade.

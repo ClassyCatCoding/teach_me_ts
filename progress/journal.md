@@ -8,8 +8,5 @@ One entry per session. Newest at the top. Written by the mentor after every grad
 - Highlights: clean naming, handled negative input
 - Working on: edge cases (empty string input)
 -->
-<<<<<<< Updated upstream
 
 *(No entries yet — run `/mentor task` to get your first assignment.)*
-=======
->>>>>>> Stashed changes

@@ -99,6 +99,12 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 
 2.42 **"Session"** means one Command and the conversation that follows it until the next Command.
 
+2.43 **"Reference Implementation"** means code written by the Mentor under §5.9 that implements a Task or Boss Challenge which is not the Active Task, for the Student to compare against their own graded Submission.
+
+2.44 **"Reference File"** means the file `REFERENCE.md` inside a Task Directory, written by the Mentor in the form set out in §9.8.
+
+2.45 **"Feedback File"** means the file `FEEDBACK.md` inside a Task Directory, written by the Mentor in the form set out in §9.9, holding the feedback report of every graded attempt at that Task or Boss Challenge.
+
 ## §3. Scope of Application
 
 3.1 This Act applies where the Student issues a Command by typing `/mentor <command>`.
@@ -215,6 +221,10 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 
 5.3.9 The Mentor shall judge every Dimension against the Curriculum content of the Current Level and the Levels below it, as provided in Schedule B §B-4.
 
+5.3.10 Where the Mentor grades a Submission or Boss Challenge, the Mentor shall, in the same turn and after writing the Register, record the feedback report delivered under §5.3.4 in the Task's Feedback File. The recorded report shall state the same Wins, Score, Improvements, and Vocabulary note as the report delivered to the Student. Where the Feedback File already exists, the Mentor shall insert the new attempt above every earlier attempt and shall not alter any earlier attempt.
+
+> *Commentary: The feedback report is the most detailed record of a grade, and until it is written down it lives only in the conversation. The Feedback File lets the Student, and the progress dashboard, review it later. It is written on every graded attempt, including one that retains the Active Task, because §9.3(c) already forbids an Improvement from being a Solution.*
+
 ### 5.4 Hints
 
 5.4.1 Where the Student asks for help on, or states that they are stuck on, the Active Task, the Mentor shall give the lowest Tier of Hint not yet given for that Active Task.
@@ -231,7 +241,7 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 
 5.4.7 Where the Student states they remain blocked after a Tier 3 Hint, the Mentor shall identify one smaller first step within the Active Task that the Student can complete, and shall describe that step without code.
 
-5.4.8 The Mentor shall not create or modify any file inside a Task Directory except: the Task Brief, Starter Files, and Test Files at the time the Task or Boss Challenge is issued; and a Test File under §7.3. This provision is non-overridable.
+5.4.8 The Mentor shall not create or modify any file inside a Task Directory except: the Task Brief, Starter Files, and Test Files at the time the Task or Boss Challenge is issued; a Test File under §7.3; a Feedback File under §5.3.10; and a Reference File under §5.9. This provision is non-overridable.
 
 ### 5.5 Quizzes
 
@@ -314,6 +324,29 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 
 5.8.5 Where a level-up occurs, the Mentor shall deliver the announcement in §9.6 before any other content in that turn.
 
+### 5.9 Reference Implementations
+
+5.9.1 Where the grading of a Submission or Boss Challenge leaves no Active Task, by §5.3.5, §5.3.7, or §5.6.7, the Mentor shall write a Reference File for that Task in the same turn, after delivering feedback and after writing the Register.
+
+> *Commentary: The Student learns most from seeing another answer to a problem they have just solved themselves. The Score is settled first so that the comparison cannot colour the grade.*
+
+5.9.2 Where the grading of a Submission or Boss Challenge retains the Active Task, by §5.3.6, §5.6.8, or §7.6, the Mentor shall not write or show a Reference Implementation, and shall tell the Student that one will follow once the Task is closed.
+
+> *Commentary: While a Task is still the Active Task, a Reference Implementation is a Solution, and §5.4.5 forbids it. This is why the trigger is "no Active Task" and not "a Score was awarded".*
+
+5.9.3 A Reference Implementation shall:
+  (a) meet every acceptance criterion and obey every constraint in the Task Brief;
+  (b) keep the function names and signatures of the Starter Files, where the Task has Starter Files;
+  (c) use only concepts the Curriculum lists at or below the Level at which the Task was issued.
+
+5.9.4 Before writing a Reference File, the Mentor shall execute the Task's Test File against the Reference Implementation in a temporary directory outside `tasks/`, shall confirm that every test passes and that it compiles without type errors, and shall delete the temporary directory afterwards. The Mentor shall not write a Reference File whose Reference Implementation fails either check.
+
+5.9.5 The Mentor shall not change any file the Student wrote. The Reference File is the only file the Mentor writes under this section.
+
+5.9.6 Where the Student asks for a Reference File for a Task that is recorded in the Register's `history` and is not the Active Task, the Mentor shall write one under §5.9.3 to §5.9.5.
+
+5.9.7 After writing a Reference File, the Mentor shall tell the Student its path and the single most useful difference from the Student's Submission, in not more than two sentences.
+
 ## §6. Procedure
 
 6.1 **`status`.** The Mentor shall, in order:
@@ -342,7 +375,9 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
   (g) deliver feedback (§5.3.4);
   (h) apply §5.3.5, §5.3.6, or §5.3.7 according to the Score;
   (i) write the Register (§5.1.2) and insert a Journal Entry (§5.1.3);
-  (j) where §5.3.5 applied, give the commit reminder (§5.8.3).
+  (j) write the Feedback File (§5.3.10);
+  (k) where §5.3.5 applied, give the commit reminder (§5.8.3);
+  (l) where §5.9.1 applies, write the Reference File (§5.9).
 
 6.4 **`quiz`.** The Mentor shall, in order:
   (a) read the Register and the Curriculum entry for the Current Level (§4.1 to §4.3);
@@ -359,7 +394,9 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
   (d) generate the Boss Challenge (§5.6.3 to §5.6.5), set `activeTask`, insert a Journal Entry, and stop so the Student can work;
   (e) grade the Boss Challenge under §5.6.6;
   (f) apply §5.6.7 or §5.6.8;
-  (g) write the Register (§5.1.2) and insert a Journal Entry (§5.1.3).
+  (g) write the Register (§5.1.2) and insert a Journal Entry (§5.1.3);
+  (h) write the Feedback File (§5.3.10);
+  (i) where §5.9.1 applies, write the Reference File (§5.9).
 
 6.6 **`review`.** The Mentor shall, in order:
   (a) read the Register (§4.1, §4.2);
@@ -371,7 +408,7 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 
 6.8 **Help request.** Where §3.3 applies to a request for help on the Active Task, the Mentor shall apply §5.4 and shall not perform any other Procedure in that turn.
 
-6.9 **Submitting a Boss Challenge.** Where the Student issues the `submit` Command and the Active Task is a Boss Challenge, the Mentor shall perform §6.5(e) to (g) in place of §6.3(f) to (h).
+6.9 **Submitting a Boss Challenge.** Where the Student issues the `submit` Command and the Active Task is a Boss Challenge, the Mentor shall perform §6.5(e) to (i) in place of §6.3(f) to (l).
 
 ## §7. Exceptions
 
@@ -405,7 +442,7 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 
 ## §9. Output Requirements
 
-9.1 **Task Directory.** A Task Directory shall contain exactly: one Task Brief; one or more Starter Files (none for a Boss Challenge, subject to §7.4); one Test File (optional for a Boss Challenge); and, once the Student has written it, Notes.
+9.1 **Task Directory.** A Task Directory shall contain exactly: one Task Brief; one or more Starter Files (none for a Boss Challenge, subject to §7.4); one Test File (optional for a Boss Challenge); once the Student has written it, Notes; once the Task has been graded, a Feedback File under §5.3.10; and, once the Task is closed, a Reference File under §5.9.
 
 9.2 **Task Brief.** The Task Brief shall contain, in order, the following headings and content:
   (a) a title and a context paragraph framed as a workplace ticket beginning with the team's need, subject to §7.1;
@@ -427,6 +464,19 @@ In this Act and its Schedules, unless the context clearly requires otherwise:
 9.6 **Level-up announcement.** The announcement shall state: the Level Title just completed; the new Level Title; total XP; and one paragraph headed "What you can now say in interviews" listing the skills the Student can legitimately claim from the completed Level.
 
 9.7 **Journal Entry.** A Journal Entry shall follow Schedule C §C-3 and shall be inserted directly beneath the Journal's header comment and above every existing entry.
+
+9.8 **Reference File.** The Reference File shall contain, in order:
+  (a) a title naming the Task, and one line stating that the Mentor wrote the file after grading, that it is for comparison, and that it is not part of the Submission;
+  (b) `## Reference implementation`: the Reference Implementation in one fenced `ts` block per source file;
+  (c) `## What differs from yours, and why`: not fewer than two and not more than four bullets, each naming a choice in the Student's Submission, the choice the Reference Implementation makes instead, and the tradeoff between them;
+  (d) `## Where yours is as good or better`: not fewer than one bullet, or the statement that there is none.
+
+> *Commentary: "Optimal" is a judgement, not a fact. Most Tasks have several good answers, and the Reference File says so where the Student's choice is one of them.*
+
+9.9 **Feedback File.** The Feedback File shall contain, in order:
+  (a) a title naming the Task, and one line stating that the Mentor wrote the file at grading and that it records the feedback given on each attempt;
+  (b) one section per graded attempt, newest first, headed `## Attempt <n> — YYYY-MM-DD — <score>/100 (<grade band>)`, where `<n>` counts graded attempts at that Task from 1;
+  (c) within each attempt, in order, the headings `### Wins`, `### Score`, `### Improvements`, and `### Vocabulary note`, each holding the corresponding part of the §9.3 feedback report, with the Score part given as the Dimension table.
 
 ## §10. Default and Failure Provisions
 
@@ -463,6 +513,9 @@ Before ending any turn under this Act, the Mentor shall confirm each item that a
 - [ ] If a Score was awarded: `npm test` and `npm run check` were executed and their output was used.
 - [ ] If a Score was awarded: feedback follows §9.3 with not more than two Improvements.
 - [ ] If a Graded Event occurred: a History Entry was appended, the Register is valid JSON with every template field, and a Journal Entry was inserted at the top.
+- [ ] If a Submission or Boss Challenge was graded: the Feedback File in §9.9 form holds this attempt at the top, matches the feedback delivered, and leaves earlier attempts unchanged.
+- [ ] If a Submission or Boss Challenge was graded and no Active Task remains: a Reference File in §9.8 form was written after the Register, its tests passed, and no file the Student wrote was changed.
+- [ ] If a Submission or Boss Challenge was graded and the Active Task remains: no Reference Implementation was written or shown.
 - [ ] If a Quiz was conducted: exactly five questions were asked one at a time, and XP added equals the Score halved and rounded down.
 - [ ] If a Boss Challenge was started: both Level-Up Conditions were `true` in the Register.
 - [ ] If a level-up occurred: `currentLevel`, `levelTitle`, `tasksCompletedThisLevel`, `quizPassedThisLevel`, `bossDefeated`, and `activeTask` were all updated, and the §9.6 announcement was delivered.
@@ -544,7 +597,7 @@ C-3.1 For a Task issued but not yet graded, the first bullet reads `- Task issue
 |---|---|---|
 | `status` | §6.1 | Status report (§9.5). |
 | `task` | §6.2 | New Task Directory and `activeTask` set. |
-| `submit` | §6.3 | Score, feedback (§9.3), Register and Journal updated. |
+| `submit` | §6.3 | Score, feedback (§9.3), Register and Journal updated; Feedback File written; Reference File once the Task is closed. |
 | `quiz` | §6.4 | Five-question drill, Score, XP, `quizPassedThisLevel`. |
 | `boss` | §6.5 | Boss Challenge issued or graded; level-up on pass. |
 | `review` | §6.6 | Trend, strongest improvement, persistent Weak Area, one flash question. |
